@@ -6,10 +6,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         dirmngr \
         procps \
         vim \
-		ca-certificates \
-		curl \
-		wget \
-		bzr \
+	ca-certificates \
+	curl \
+	wget \
+	bzr \
         git \
         openssh-client \
         autoconf \
