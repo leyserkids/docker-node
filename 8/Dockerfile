@@ -59,12 +59,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # [Optional] Make a user "node"
 #
 RUN groupadd --gid 1000 node \
-  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
+    && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
 
 #
 # Confirm the node version
 #
-ENV NODE_VERSION 6.12.2
+ENV NODE_VERSION 8.9.4
 
 #
 # Install nodejs runtime
