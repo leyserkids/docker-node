@@ -64,7 +64,7 @@ RUN groupadd --gid 1000 node \
 #
 # Confirm the node version
 #
-ENV NODE_VERSION 8.9.4
+ENV NODE_VERSION 8.11.1
 
 #
 # Install nodejs runtime
@@ -106,7 +106,7 @@ RUN set -ex \
 #
 # [Optional] Install yarn
 #
-ENV YARN_VERSION 1.3.2
+ENV YARN_VERSION 1.5.1
 RUN set -ex \
   && for key in \
     6A010C5166006599AA17F08146C2130DFD2497F5 \
