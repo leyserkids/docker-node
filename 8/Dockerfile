@@ -1,36 +1,22 @@
 FROM debian:stretch
 
 #
-# Install system basic tools
+# Install system basic tools and version control
 #
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		ca-certificates \
 		curl \
 		netbase \
 		wget \
-	&& rm -rf /var/lib/apt/lists/*
-
-#
-# Auto detect whether install gpupg
-#
-RUN set -ex; \
-	if ! command -v gpg > /dev/null; then \
-		apt-get update; \
-		apt-get install -y --no-install-recommends \
-			gnupg \
-			dirmngr \
-		; \
-		rm -rf /var/lib/apt/lists/*; \
-	fi
-
-#
-# Version control systems
-#
-RUN apt-get update && apt-get install -y --no-install-recommends \
+		gnupg \
+		dirmngr \
 		bzr \
 		git \
 		openssh-client \
-	&& rm -rf /var/lib/apt/lists/*
+	    vim \
+	&& echo 'scriptencoding utf-8' >> /etc/vim/vimrc.local \
+	&& echo 'set encoding=utf-8' >> /etc/vim/vimrc.local \
+    && rm -rf /var/lib/apt/lists/*
 
 #
 # Install development dependencies
@@ -38,7 +24,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
-	    vim \
 		autoconf \
 		automake \
 		bzip2 \
@@ -78,11 +63,6 @@ RUN set -ex; \
 		xz-utils \
 		zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
-
-#
-# Make sure use UTF-8
-#
-ENV LANG en_US.UTF-8
 
 #
 # [Optional] Make a user "node"
