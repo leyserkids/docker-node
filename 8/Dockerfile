@@ -8,8 +8,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		curl \
 		netbase \
 		wget \
-		apt-utils \
-		vim-nox \
 	&& rm -rf /var/lib/apt/lists/*
 
 #
@@ -40,6 +38,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
+	    vim \
 		autoconf \
 		automake \
 		bzip2 \
@@ -79,6 +78,11 @@ RUN set -ex; \
 		xz-utils \
 		zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
+
+#
+# Make sure use UTF-8
+#
+ENV LANG en_US.UTF-8
 
 #
 # [Optional] Make a user "node"
