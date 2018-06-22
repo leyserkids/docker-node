@@ -1,58 +1,83 @@
 FROM debian:stretch
 
 #
-# Install all dependencies
+# Install system basic tools
 #
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        ca-certificates \
+		ca-certificates \
 		curl \
 		netbase \
 		wget \
-        gnupg2 \
-        dirmngr \
-        bzr \
-        git \
-        openssh-client \
-        procps \
-        vim \
-        autoconf \
-        automake \
-        bzip2 \
-        dpkg-dev \
-        file \
-        g++ \
-        gcc \
-        imagemagick \
-        libbz2-dev \
-        libc6-dev \
-        libcurl4-openssl-dev \
-        libdb-dev \
-        libevent-dev \
-        libffi-dev \
-        libgdbm-dev \
-        libgeoip-dev \
-        libglib2.0-dev \
-        libjpeg-dev \
-        libkrb5-dev \
-        liblzma-dev \
-        libmagickcore-dev \
-        libmagickwand-dev \
-        libncurses5-dev \
-        libncursesw5-dev \
-        libpng-dev \
-        libpq-dev \
-        libreadline-dev \
-        libsqlite3-dev \
-        libssl-dev \
-        libtool \
-        libwebp-dev \
-        libxml2-dev \
-        libxslt-dev \
-        libyaml-dev \
-        make \
-        patch \
-        xz-utils \
-        zlib1g-dev \
+		apt-utils \
+		vim-nox \
+	&& rm -rf /var/lib/apt/lists/*
+
+#
+# Auto detect whether install gpupg
+#
+RUN set -ex; \
+	if ! command -v gpg > /dev/null; then \
+		apt-get update; \
+		apt-get install -y --no-install-recommends \
+			gnupg \
+			dirmngr \
+		; \
+		rm -rf /var/lib/apt/lists/*; \
+	fi
+
+#
+# Version control systems
+#
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		bzr \
+		git \
+		openssh-client \
+	&& rm -rf /var/lib/apt/lists/*
+
+#
+# Install development dependencies
+#
+RUN set -ex; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends \
+		autoconf \
+		automake \
+		bzip2 \
+		dpkg-dev \
+		file \
+		g++ \
+		gcc \
+		imagemagick \
+		libbz2-dev \
+		libc6-dev \
+		libcurl4-openssl-dev \
+		libdb-dev \
+		libevent-dev \
+		libffi-dev \
+		libgdbm-dev \
+		libgeoip-dev \
+		libglib2.0-dev \
+		libjpeg-dev \
+		libkrb5-dev \
+		liblzma-dev \
+		libmagickcore-dev \
+		libmagickwand-dev \
+		libncurses5-dev \
+		libncursesw5-dev \
+		libpng-dev \
+		libpq-dev \
+		libreadline-dev \
+		libsqlite3-dev \
+		libssl-dev \
+		libtool \
+		libwebp-dev \
+		libxml2-dev \
+		libxslt-dev \
+		libyaml-dev \
+		make \
+		patch \
+		xz-utils \
+		zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 #
