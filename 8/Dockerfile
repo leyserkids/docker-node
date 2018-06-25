@@ -3,7 +3,7 @@ FROM debian:stretch
 #
 # Install system basic tools and version control
 #
-RUN echo '2.2018.06251' \
+RUN echo '2.2018.06251'; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
 		ca-certificates \
@@ -17,7 +17,7 @@ RUN echo '2.2018.06251' \
 #
 # Install development dependencies
 #
-RUN echo '2.2018.06251' \
+RUN echo '2.2018.06251'; \
     set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
