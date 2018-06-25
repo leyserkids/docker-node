@@ -1,11 +1,30 @@
 FROM debian:stretch
 
 #
-# Install dependencies
+# Install system basic tools and version control
 #
 RUN echo '2.2018.06251' \
     apt-get update; \
+    apt-get install -y --no-install-recommends \
+		ca-certificates \
+		curl \
+		netbase \
+		wget \
+		gnupg \
+		dirmngr \
+    && rm -rf /var/lib/apt/lists/*
+
+#
+# Install development dependencies
+#
+RUN echo '2.2018.06251' \
+    set -ex; \
+	apt-get update; \
 	apt-get install -y --no-install-recommends \
+		bzr \
+		git \
+		openssh-client \
+	    vim \
 		ca-certificates \
 		curl \
 		netbase \
