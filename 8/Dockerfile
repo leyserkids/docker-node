@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:jessie
 
 #
 # Install system basic tools and version control
@@ -6,6 +6,7 @@ FROM debian:stretch
 RUN echo '2.2018.06251'; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        apt-utils \
 		ca-certificates \
 		curl \
 		netbase \
