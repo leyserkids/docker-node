@@ -1,9 +1,11 @@
 FROM debian:stretch
 
 #
-# Install system basic tools and version control
+# Install dependencies
 #
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN echo '2.2018.06251' \
+    apt-get update; \
+	apt-get install -y --no-install-recommends \
 		ca-certificates \
 		curl \
 		netbase \
@@ -14,16 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		git \
 		openssh-client \
 	    vim \
-	&& echo 'scriptencoding utf-8' >> /etc/vim/vimrc.local \
-	&& echo 'set encoding=utf-8' >> /etc/vim/vimrc.local \
-    && rm -rf /var/lib/apt/lists/*
-
-#
-# Install development dependencies
-#
-RUN set -ex; \
-	apt-get update; \
-	apt-get install -y --no-install-recommends \
 		autoconf \
 		automake \
 		bzip2 \
@@ -62,6 +54,8 @@ RUN set -ex; \
 		patch \
 		xz-utils \
 		zlib1g-dev \
+	&& echo 'scriptencoding utf-8' >> /etc/vim/vimrc.local \
+	&& echo 'set encoding=utf-8' >> /etc/vim/vimrc.local \
     && rm -rf /var/lib/apt/lists/*
 
 #
