@@ -46,6 +46,7 @@ RUN echo '2.2018.06251'; \
 		imagemagick \
 		libbz2-dev \
 		libc6-dev \
+		libcups2-dev \
 		libcurl4-openssl-dev \
 		libdb-dev \
 		libevent-dev \
