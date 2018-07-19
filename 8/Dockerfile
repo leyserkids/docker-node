@@ -3,7 +3,7 @@ FROM debian:jessie
 #
 # Install system basic tools and version control
 #
-RUN echo '2.2018.06251'; \
+RUN echo '2.2018.07191'; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         apt-utils \
@@ -18,7 +18,7 @@ RUN echo '2.2018.06251'; \
 #
 # Install development dependencies
 #
-RUN echo '2.2018.06251'; \
+RUN echo '2.2018.07191'; \
     set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
