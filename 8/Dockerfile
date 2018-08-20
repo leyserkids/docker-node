@@ -3,7 +3,7 @@ FROM debian:jessie
 #
 # Install system basic tools and version control
 #
-RUN echo '2.2018.07191'; \
+RUN echo '2.2018.08201'; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         apt-utils \
@@ -18,7 +18,7 @@ RUN echo '2.2018.07191'; \
 #
 # Install development dependencies
 #
-RUN echo '2.2018.07191'; \
+RUN echo '2.2018.08201'; \
     set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
@@ -106,7 +106,7 @@ RUN set -ex \
 #
 # Confirm the node version
 #
-ENV NODE_VERSION 8.11.3
+ENV NODE_VERSION 8.11.4
 
 #
 # Install nodejs runtime
