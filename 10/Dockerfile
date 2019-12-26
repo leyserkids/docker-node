@@ -38,13 +38,13 @@ RUN set -ex; \
 		libevent-dev \
 		libffi-dev \
 		libgdbm-dev \
-		libgeoip-dev \
 		libglib2.0-dev \
 		libjpeg-dev \
 		libkrb5-dev \
 		liblzma-dev \
 		libmagickcore-dev \
 		libmagickwand-dev \
+		libmaxminddb-dev \
 		libncurses5-dev \
 		libncursesw5-dev \
 		libpng-dev \
@@ -74,7 +74,7 @@ RUN groupadd --gid 1000 node \
 #
 # Confirm the node version
 #
-ENV NODE_VERSION 10.16.0
+ENV NODE_VERSION 10.18.0
 
 #
 # Install nodejs runtime
