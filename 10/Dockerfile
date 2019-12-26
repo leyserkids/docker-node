@@ -44,7 +44,6 @@ RUN set -ex; \
 		liblzma-dev \
 		libmagickcore-dev \
 		libmagickwand-dev \
-		libmaxminddb-dev \
 		libncurses5-dev \
 		libncursesw5-dev \
 		libpng-dev \
